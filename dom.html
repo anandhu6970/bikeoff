@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+h1,p{
+  text-align:center; 
+}
+table,th,td {
+  border : 2px solid black;
+   margin-left: auto;
+  margin-right: auto;
+}
+th,td {
+  padding: 9px;
+}
+</style>
+<body>
+<h1>BIKE RENTALS ERA!!</h1>
+<p>AVAILABLITY OF BIKES</p>
+<p id='showtrc'></p>
+<table id="demo"></table>
+<select id="dem" onchange="show()">
+        <option value="Select Color">Select Color</option>
+        <option value="yellow">Yellow</option>
+        <option value="pink">Pink</option>
+        <option value="orange">Orange</option>
+    </select>
+<script>
+var x,xmlhttp,xmlDoc
+xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", "index.xml", false);
+xmlhttp.send();
+xmlDoc = xmlhttp.responseXML; 
+x = xmlDoc.getElementsByTagName("bike");
+table="<tr><th>BIKE RENTING</th><th>AVAILABLE</th></tr>";
+for (i = 0; i <x.length; i++) { 
+  table += "<tr onclick='displaytrack(" + i + ")'><td>";
+  table += x[i].getElementsByTagName("bikename")[0].childNodes[0].nodeValue;
+  table += "</td><td>";
+  table +=  x[i].getElementsByTagName("available")[0].childNodes[0].nodeValue;
+  table += "</td></tr>";
+}
+document.getElementById("demo").innerHTML = table;
+
+function displaytrack(i) {
+  document.getElementById("showtrc").innerHTML =
+  "BIKENAME: " +
+  x[i].getElementsByTagName("bikename")[0].childNodes[0].nodeValue +
+  "<br>PICKOFF: " +
+  x[i].getElementsByTagName("pickoff")[0].childNodes[0].nodeValue +
+  "<br>DROP: " + 
+  x[i].getElementsByTagName("drop")[0].childNodes[0].nodeValue +
+  "<br>PRIZE: " +
+  x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+}
+
+        function show()
+        {
+            var value=document.getElementById("dem").value;
+            if(value!="Select Color")
+            {
+                document.bgColor=value;
+                document.cookie="color="+value+";expires=Fri,1 Aug 1970 01:00:00 UTC;";
+            }
+        }
+        window.onload=function()
+        {
+            if(document.cookie.length!=0)
+            {
+                var a=document.cookie.split("=");
+                document.getElementById("dem").value=a[1];
+                document.bgColor=a[1];
+            }
+        }
+    </script>
+</div>
+<p><cite><font size="10"><font color="BLUE">OUR SPECIALITY</font></font></cite></p>
+<P1><cite><center>BIKE MAINTAINCE<center></cite></P1>
+<P2><center>LOAN SERVICES</center></P2>
+<p3><center>24/7 FASCILITY</center></p3>
+</div>
+</body>
+</html>
+    
+           <li><span class="fa fa-map-marker mr-3"></span><span class="text">NORTH KOCHI,VYPIN</span></li>
+           <li><a href="#"><span class="fa fa-phone mr-3"></span><span class="text">+2 392 3929 210</span></a></li>
+           <li><a href="#"><span class="fa fa-paper-plane mr-3"></span><span class="text">buddykid@gmail.com</span></a></li>
+         </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="container-fluid bg-primary py-5">
+ <div class="row">
+  <div class="col-md-12 text-center">
+ 
+    </div>
+  </div>
+</div>
+</footer>
+
+
+
+
+</body>
+</html>
+</body>
+</html>

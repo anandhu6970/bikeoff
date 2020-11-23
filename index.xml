@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bikes>
+<bike mid="M1">
+<bikename>honda</bikename>
+<pickoff>mumbai</pickoff>
+<drop>11/2/20</drop>
+<price>1500</price>
+<available>3</available>
+</bike>
+<bike mid="M2">
+<bikename>yamaha</bikename>
+<pickoff>banglore</pickoff>
+<drop>1/01/20</drop>
+<price>300</price>
+<available>3</available>
+</bike>
+<bike mid="M3">
+<bikename>ktm</bikename>
+<pickoff>chennai</pickoff>
+<drop>12/2/20</drop>
+<price>1000</price>
+<available>3</available>
+</bike>
+<bike mid="M4">
+<bikename>kochi</bikename>
+<pickoff>Billie</pickoff>
+<drop>21/3/20</drop>
+<price>1550</price>
+<available>3</available>
+</bike>
+<bike mid="M5">
+<bikename>royal enfeild</bikename>
+<pickoff>tvm</pickoff>
+<drop>14/2/20</drop>
+<price>1000</price>
+<available>3</available>
+</bike>
+</bikes>
