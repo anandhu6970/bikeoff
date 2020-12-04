@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>json</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">BUDDY BIKE <span class="logo_colour">RENTING</span></a></h1>
+          <h2>FIND UR UPCOMING BIKES</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          
+          <li class="selected"><a href="index.html">Home</a></li>
+           <li class="selected"><a href="gallery.html">gallery</a></li>
+            <li class="selected"><a href="index.html">log up</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    </script> 
+</head> 
+
+<body style = "text-align:center;"> 
+    
+    <h1 style = "color:green;"> 
+        Find your  upcoming bikes here 
+    </h1> 
+    
+    <p id = "GFG_UP" style = "color:green;">
+            
+    </p> 
+    
+    <button onclick = "GFG_FUN()"> 
+        CLICK UP 
+    </button> 
+    
+    <br><br> 
+    <center>
+    <table id="table" align = "center" border="1px"></table> 
+    </center>
+    
+    <script> 
+        var el_up = document.getElementById("GFG_UP"); 
+      
+        var list = [ 
+            {"BIKE":"BAJAJ DOMINAR", "COMPANY":"BAJAJ", "MILEAGE.":"25"}, 
+           {"BIKE":"KTM DUKE", "COMPANY":"KTM", "MILEAGE.":"30"},
+           {"BIKE":"APACHE 200", "COMPANY":"DUKE", "MILEAGE.":"40"},
+        ]; 
+        
+        
+        el_up.innerHTML = "here is the table list " 
+                + "of upcoming bikes for you.<br><br>" 
+                + JSON.stringify(list[0]) + "<br>" 
+                + JSON.stringify(list[1]) + "<br>" 
+                + JSON.stringify(list[2]); 
+        
+        function GFG_FUN() { 
+            var cols = []; 
+            
+            for (var i = 0; i < list.length; i++) { 
+                for (var k in list[i]) { 
+                    if (cols.indexOf(k) === -1) { 
+                        
+                        cols.push(k); 
+                    } 
+                } 
+            } 
+
+            var table = document.createElement("table"); 
+
+            var tr = table.insertRow(-1); 
+            
+            for (var i = 0; i < cols.length; i++) { 
+
+                var theader = document.createElement("th"); 
+                theader.innerHTML = cols[i]; 
+
+                tr.appendChild(theader); 
+            } 
+
+            for (var i = 0; i < list.length; i++) { 
+
+                trow = table.insertRow(-1); 
+                for (var j = 0; j < cols.length; j++) { 
+                    var cell = trow.insertCell(-1); 
+ 
+                    cell.innerHTML = list[i][cols[j]]; 
+                } 
+            } 
+
+            var el = document.getElementById("table"); 
+            el.innerHTML = ""; 
+            el.appendChild(table); 
+        }    
+    </script> 
+</body> 
+
+</html>
+
+  </div>
+</body>
+</html>
