@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarZZone-Accessories</title>
+    <script src="angular.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="img/cZZ.png" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS file -->
+    <style>
+      h1{
+          color: maroon;
+      }
+      p{
+          color: red;
+      }
+  h1,p{
+    text-align:center;
+  }
+  #show{
+      margin-bottom: 0px;
+  }
+  table,th,td {
+      background-color:#18191A;
+      color:white;
+    border : 2px solid black;
+     margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+  th,td {
+    padding: 10px;
+  }
+  .search{
+    width: 133px;
+  }
+  label{
+    color: white;
+    margin-left: 40%;
+  }
+  .table_head{
+    color: red;
+  }
+  .table_list{
+    color: goldenrod;
+  }
+  </style>
+  	<link rel="stylesheet" type="text/css" href="css/styles.css">
+  	<!-- Bootstrap CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- Bootstrap JS, Popper.js, and jQuery -->
+  	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <!-- AngularJS -->
+  <script src="angular.min.js"></script>
+  <script src="product.js"></script>
+  	<!-- Font Awesome icons (free version)-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script>
+      "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+  </script>
+</head>
+<body class="json" ng-app="myapp" ng-controller="myctrl">
+    <!-- Navigation Bar -->
+  <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <header><h1>BIKE ACCESSORIES</h1></header>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html?#">Home</a>
+              </li>
+           
+      				</li>
+          </ul>
+        </div>
+    </nav>
+  </section>
+  <br><br>
+    <h1>Bike Accessories</h1>
+    <br><br>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Index</th>
+            <th>PID</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+            <th>OPTIONS</th>
+        </tr>
+        <tr ng-repeat="product in listProducts">
+            <td>{{$index}}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>
+                <a href="#" ng-click="delete()">Delete</a> |
+                <a href="#" ng-click="edit(product.id)">Edit</a>
+            </td>
+        </tr>
+    </table>
+    <h3>Product Information</h3>
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+            <td>PID</td>
+            <td><input type="text" ng-model="id"></td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+            <td><input type="text" ng-model="name"></td>
+        </tr>
+        <tr>
+            <td>PRICE</td>
+            <td><input type="text" ng-model="price"></td>
+        </tr>
+        <tr>
+            <td>QUANTITY</td>
+            <td><input type="text" ng-model="quantity"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="button" value="ADD" ng-click="add()">
+            <input type="button" value="SAVE" ng-click="save()"></td>
+        </tr>
+    </table>
+    <br><br><br>
+    <!-- footer -->
+ <section id="footer">
+    <footer class="footer py-4">
+              <div class="container">
+                  <div class="row align-items-center">
+                      <div class="col-lg-4 text-lg-left">Copyright &copy; My Website 2020</div>
+              <div class="social">     
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook-square" id="fb" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/"><i class="fa fa-youtube-play" id="yt" aria-hidden="true"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa fa-twitter-square" id="tw" aria-hidden="true"></i></a>
+                <a href="https://plus.google.com/"><i class="fa fa-google-plus-square" id="gp" aria-hidden="true"></i></a>
+            </div>
+                      <div class="col-lg-4 text-lg-right">
+                          <a class="mr-3" href="#!">Privacy Policy</a>
+                          <a href="#!">Terms of Use</a>
+                      </div>
+                    <a type="button" class="btn btn-warning" href="#">Back to top</a>
+                  </div>
+              </div>
+          </footer>
+        </section>
+</body>
+</html>
